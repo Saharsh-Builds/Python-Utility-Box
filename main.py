@@ -1,6 +1,9 @@
 import questionary
 import sys
 
+
+
+
 def main_menu():
     while True:
         
@@ -39,7 +42,7 @@ def main():
             dice_roller()
         
         elif UserChoice == "3. Password Generator":
-            from pw_gen import password_generator
+            from pw_gen import password_generator          
             password_generator()
 
         elif UserChoice == "4. Exit":
@@ -48,7 +51,7 @@ def main():
 
         else:
             print("How did you get here? Please select a valid option from the menu.")
-            main_menu()
+            main()
 
 
 
@@ -58,4 +61,5 @@ def main():
 
 
 
-main()
+if __name__ == "__main__":
+    main()
