@@ -2,62 +2,69 @@ import questionary
 import sys
 
 
-
-
 def main_menu():
-        
-        custom_style = questionary.Style([
-        ('highlighted', 'bold'),
-        ])
 
-        Choice = questionary.select(
-            "Please select an Utility tool and press Enter to continue: ",
-            choices=[
-                "1. Calculator",
-                "2. Dice Roller",
-                "3. Password Generator",
-                "4. Exit"
-            ],
-            pointer= ">",
-            style=custom_style
-        ).ask()
+    def show_banner():
+        print("\n")
+        print("╭───────────────────────────────────────────╮")
+        print("│ Utility Box v1.0                          │")
+        print("│                                           │")
+        print("│ made by Saharsh-Builds <3                 │")
+        print("│                                           │")
+        print("│ For learning Python, and a few tools      │")
+        print("╰───────────────────────────────────────────╯")
+        print()
 
-        return Choice
+    show_banner()
 
-        
+    custom_style = questionary.Style([
+        ('qmark', 'fg:#00d7ff bold'),          
+        ('question', 'fg:#00d7ff bold'),       
+        ('pointer', 'fg:#ff5f87 bold'),        
+        ('highlighted', 'fg:#5fff87 bold'),    
+        ('selected', 'fg:#5fff87'),           
+        ('answer', 'fg:#ffd700 bold'),         
+    ])
+
+    choice = questionary.select(
+        "Select a utility:",
+        choices=[
+            "🧮 Calculator",
+            "🎲 Dice Roller",
+            "🔐 Password Generator",
+            "🚪 Exit"
+        ],
+        pointer="➜",
+        style=custom_style
+    ).ask()
+
+    return choice
+
+
 def main():
+
     while True:
-        
-        
+
         UserChoice = main_menu()
 
-
-        if UserChoice == "1. Calculator":
+        if UserChoice == "🧮 Calculator":
             from calculator import calculator
             calculator()
 
-        elif UserChoice == "2. Dice Roller":
+        elif UserChoice == "🎲 Dice Roller":
             from diceroller import dice_roller
             dice_roller()
-        
-        elif UserChoice == "3. Password Generator":
-            from pw_gen import password_generator          
+
+        elif UserChoice == "🔐 Password Generator":
+            from pw_gen import password_generator
             password_generator()
 
-        elif UserChoice == "4. Exit":
-            print("Exiting the program. Goodbye!")
+        elif UserChoice == "🚪 Exit":
+            print("\nThanks for using Utility Box!")
             sys.exit()
 
         else:
-            print("How did you get here? Please select a valid option from the menu.")
-            
-
-
-
-
-
-
-
+            print("Invalid choice.")
 
 
 if __name__ == "__main__":
