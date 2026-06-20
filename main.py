@@ -5,7 +5,6 @@ import sys
 
 
 def main_menu():
-    while True:
         
         custom_style = questionary.Style([
         ('highlighted', 'bold'),
@@ -51,7 +50,7 @@ def main():
 
         else:
             print("How did you get here? Please select a valid option from the menu.")
-            main()
+            
 
 
 
